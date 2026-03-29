@@ -1,0 +1,2309 @@
+{
+  "currentUserLogin": "kriti232",
+  "threadUrl": "https://github.com/copilot/c/becbb253-f07c-4b2e-9fae-0d2ac56dff60",
+  "threadName": "Building an advanced onboarding system",
+  "messages": [
+    {
+      "id": "root",
+      "role": "user",
+      "createdAt": "",
+      "threadID": "",
+      "references": null
+    },
+    {
+      "id": "907bda7e-9b76-40d7-b393-6df433c53a3c",
+      "parentMessageID": "root",
+      "role": "user",
+      "content": "Build an advanced onboarding system for a Smart Study Planner web app using React (with Tailwind CSS for UI).\n\nCurrent system only has name, email, password.\n\nI want to extend it into a multi-step dynamic onboarding flow:\n\nStep 1: Basic Info\n- Name\n- Email\n- Password\n\nStep 2: User Level Selection\nAsk:\n\"What is your current level?\"\nOptions:\n1. School Student\n2. College Student\n3. Working Professional\n\nStep 3: Purpose Selection\nAsk:\n\"What is your primary goal?\"\nOptions:\n- Prepare for Exams\n- Learn Skills\n- Prepare for Interviews\n\nStep 4: Conditional Inputs Based on Selection\n\nIf \"School Student\":\n- Ask class (1 to 12)\n- If class is 11 or 12:\n  - Ask stream: Science / Commerce / Arts\n  - Show subjects accordingly\n\nIf \"College Student\":\n- Ask:\n  - Course (B.Tech, BSc, BCom, etc.)\n  - Branch (CSE, ECE, etc.)\n  - Year (1st, 2nd, etc.)\n\nIf \"Working Professional\":\n- Ask:\n  - Field (IT, Finance, etc.)\n  - Experience level\n\nIf \"Learn Skills\":\n- Ask:\n  - Skill (e.g. Programming, Design, Communication)\n- Based on skill:\n  - Generate:\n    - Learning resources\n    - Quiz suggestions\n    - Articles\n\nIf \"Prepare for Exams\":\n- Ask:\n  - Exam type:\n    - Government Exams\n    - GATE\n    - Board Exams\n    - Semester Exams\n- Based on selection:\n  - Generate customized study plan\n\nIf \"Prepare for Interviews\":\n- Ask:\n  - Role (Software Engineer, Data Analyst, etc.)\n- Generate:\n  - Interview questions\n  - Practice plan\n\nStep 5: Store all user data in state (or backend if available)\n\nStep 6: Dynamic Dashboard\nAfter onboarding, redirect user to a dashboard that changes based on user profile:\n\nDashboard should include:\n- Personalized study plan\n- Recommended resources\n- Progress tracker\n- Quiz section\n\nUI Requirements:\n- Use clean modern card layout\n- Use Tailwind CSS\n- Add step progress indicator\n- Make it mobile responsive\n\nCode Requirements:\n- Use React functional components\n- Use useState / useContext for state management\n- Create reusable components for each step\n- Use conditional rendering for dynamic forms\n\nAlso include:\n- Sample JSON structure for storing user profile\n- Example logic for generating dashboard content based on user type\n\nMake the code modular and scalable.",
+      "createdAt": "2026-03-29T17:14:01.178Z",
+      "threadID": "becbb253-f07c-4b2e-9fae-0d2ac56dff60",
+      "references": [
+        {
+          "id": 1195422900,
+          "name": "smart-study-planner",
+          "owner": "kriti232",
+          "ownerLogin": "kriti232",
+          "defaultBranch": "main",
+          "type": "repository"
+        }
+      ],
+      "skillExecutions": []
+    },
+    {
+      "id": "65670f75-6bb6-4ad9-b6e9-b0fca007d65e",
+      "parentMessageID": "907bda7e-9b76-40d7-b393-6df433c53a3c",
+      "intent": "conversation",
+      "role": "assistant",
+      "model": "",
+      "content": "I'll help you build an advanced onboarding system for the Smart Study Planner. Let me first check the current repository structure to understand what's already in place.I'll create a comprehensive advanced onboarding system for your Smart Study Planner web app. Let me build this with modular, scalable components.Now I'll create the comprehensive onboarding system with all components. Let me create the necessary files:",
+      "createdAt": "2026-03-29T17:14:24.727904864Z",
+      "threadID": "becbb253-f07c-4b2e-9fae-0d2ac56dff60",
+      "references": [
+        {
+          "type": "subskill-metadata",
+          "slug": "get-github-data",
+          "arguments": "{\"endpoint\":\"/repos/kriti232/smart-study-planner/contents\",\"repo\":\"kriti232/smart-study-planner\",\"task\":\"list directory contents and existing files\",\"userQuery\":\"Provide the structure and existing files in the kriti232/smart-study-planner repository.\"}",
+          "sub_references": [
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": ".gitignore",
+                "path": ".gitignore",
+                "size": 26,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "README.md",
+                "path": "README.md",
+                "size": 21,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "dist",
+                "path": "dist",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "index.html",
+                "path": "index.html",
+                "size": 699,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package-lock.json",
+                "path": "package-lock.json",
+                "size": 68205,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package.json",
+                "path": "package.json",
+                "size": 756,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "public",
+                "path": "public",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "src",
+                "path": "src",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.json",
+                "path": "tsconfig.json",
+                "size": 604,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.node.json",
+                "path": "tsconfig.node.json",
+                "size": 212,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "vite.config.ts",
+                "path": "vite.config.ts",
+                "size": 162,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+              "type": "api-response"
+            }
+          ],
+          "parent_slug": "githubread",
+          "tool_call_id": "call_8XwmgjNQkCMrj4D2krGiICwb",
+          "parent_tool_call_id": "toolu_vrtx_01NxXxWr1Zx2q94zBFWQX1nP"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": ".gitignore",
+            "path": ".gitignore",
+            "size": 26,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "README.md",
+            "path": "README.md",
+            "size": 21,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "dist",
+            "path": "dist",
+            "size": 0,
+            "type": "dir"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "index.html",
+            "path": "index.html",
+            "size": 699,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "package-lock.json",
+            "path": "package-lock.json",
+            "size": 68205,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "package.json",
+            "path": "package.json",
+            "size": 756,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "public",
+            "path": "public",
+            "size": 0,
+            "type": "dir"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "src",
+            "path": "src",
+            "size": 0,
+            "type": "dir"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "tsconfig.json",
+            "path": "tsconfig.json",
+            "size": 604,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "tsconfig.node.json",
+            "path": "tsconfig.node.json",
+            "size": 212,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "vite.config.ts",
+            "path": "vite.config.ts",
+            "size": 162,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+          "type": "api-response"
+        },
+        {
+          "type": "subskill-metadata",
+          "slug": "get-github-data",
+          "arguments": "{\"endpoint\":\"/repos/kriti232/smart-study-planner/contents\",\"repo\":\"kriti232/smart-study-planner\",\"task\":\"list directory contents and existing files\",\"userQuery\":\"Provide the structure and existing files in the kriti232/smart-study-planner repository.\"}",
+          "sub_references": [
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": ".gitignore",
+                "path": ".gitignore",
+                "size": 26,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "README.md",
+                "path": "README.md",
+                "size": 21,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "dist",
+                "path": "dist",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "index.html",
+                "path": "index.html",
+                "size": 699,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package-lock.json",
+                "path": "package-lock.json",
+                "size": 68205,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package.json",
+                "path": "package.json",
+                "size": 756,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "public",
+                "path": "public",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "src",
+                "path": "src",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.json",
+                "path": "tsconfig.json",
+                "size": 604,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.node.json",
+                "path": "tsconfig.node.json",
+                "size": 212,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "vite.config.ts",
+                "path": "vite.config.ts",
+                "size": 162,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+              "type": "api-response"
+            }
+          ],
+          "parent_slug": "githubread",
+          "tool_call_id": "call_8XwmgjNQkCMrj4D2krGiICwb",
+          "parent_tool_call_id": "toolu_vrtx_01NxXxWr1Zx2q94zBFWQX1nP"
+        }
+      ],
+      "skillExecutions": [
+        {
+          "slug": "get-github-data",
+          "status": "completed",
+          "arguments": "{\"endpoint\":\"/repos/kriti232/smart-study-planner/contents\",\"repo\":\"kriti232/smart-study-planner\",\"task\":\"list directory contents and existing files\",\"userQuery\":\"Provide the structure and existing files in the kriti232/smart-study-planner repository.\"}",
+          "references": [
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": ".gitignore",
+                "path": ".gitignore",
+                "size": 26,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "README.md",
+                "path": "README.md",
+                "size": 21,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "dist",
+                "path": "dist",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "index.html",
+                "path": "index.html",
+                "size": 699,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package-lock.json",
+                "path": "package-lock.json",
+                "size": 68205,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package.json",
+                "path": "package.json",
+                "size": 756,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "public",
+                "path": "public",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "src",
+                "path": "src",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.json",
+                "path": "tsconfig.json",
+                "size": 604,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.node.json",
+                "path": "tsconfig.node.json",
+                "size": 212,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "vite.config.ts",
+                "path": "vite.config.ts",
+                "size": 162,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+              "type": "api-response"
+            }
+          ],
+          "callId": "call_8XwmgjNQkCMrj4D2krGiICwb"
+        }
+      ]
+    },
+    {
+      "id": "7c94654d-8f5c-4b1c-a0b9-1e7cd4b28a1a",
+      "parentMessageID": "65670f75-6bb6-4ad9-b6e9-b0fca007d65e",
+      "role": "user",
+      "content": "@Copilot Accepted Confirmation: Are you sure?",
+      "createdAt": "2026-03-29T17:14:25.237Z",
+      "threadID": "becbb253-f07c-4b2e-9fae-0d2ac56dff60",
+      "references": [
+        {
+          "type": "subskill-metadata",
+          "slug": "get-github-data",
+          "arguments": "{\"endpoint\":\"/repos/kriti232/smart-study-planner/contents\",\"repo\":\"kriti232/smart-study-planner\",\"task\":\"list directory contents and existing files\",\"userQuery\":\"Provide the structure and existing files in the kriti232/smart-study-planner repository.\"}",
+          "sub_references": [
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": ".gitignore",
+                "path": ".gitignore",
+                "size": 26,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "README.md",
+                "path": "README.md",
+                "size": 21,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "dist",
+                "path": "dist",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "index.html",
+                "path": "index.html",
+                "size": 699,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package-lock.json",
+                "path": "package-lock.json",
+                "size": 68205,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package.json",
+                "path": "package.json",
+                "size": 756,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "public",
+                "path": "public",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "src",
+                "path": "src",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.json",
+                "path": "tsconfig.json",
+                "size": 604,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.node.json",
+                "path": "tsconfig.node.json",
+                "size": 212,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "vite.config.ts",
+                "path": "vite.config.ts",
+                "size": 162,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+              "type": "api-response"
+            }
+          ],
+          "parent_slug": "githubread",
+          "tool_call_id": "call_8XwmgjNQkCMrj4D2krGiICwb",
+          "parent_tool_call_id": "toolu_vrtx_01NxXxWr1Zx2q94zBFWQX1nP"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": ".gitignore",
+            "path": ".gitignore",
+            "size": 26,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "README.md",
+            "path": "README.md",
+            "size": 21,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "dist",
+            "path": "dist",
+            "size": 0,
+            "type": "dir"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "index.html",
+            "path": "index.html",
+            "size": 699,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "package-lock.json",
+            "path": "package-lock.json",
+            "size": 68205,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "package.json",
+            "path": "package.json",
+            "size": 756,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "public",
+            "path": "public",
+            "size": 0,
+            "type": "dir"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "src",
+            "path": "src",
+            "size": 0,
+            "type": "dir"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "tsconfig.json",
+            "path": "tsconfig.json",
+            "size": 604,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "tsconfig.node.json",
+            "path": "tsconfig.node.json",
+            "size": 212,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "vite.config.ts",
+            "path": "vite.config.ts",
+            "size": 162,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+          "type": "api-response"
+        },
+        {
+          "type": "subskill-metadata",
+          "slug": "get-github-data",
+          "arguments": "{\"endpoint\":\"/repos/kriti232/smart-study-planner/contents\",\"repo\":\"kriti232/smart-study-planner\",\"task\":\"list directory contents and existing files\",\"userQuery\":\"Provide the structure and existing files in the kriti232/smart-study-planner repository.\"}",
+          "sub_references": [
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": ".gitignore",
+                "path": ".gitignore",
+                "size": 26,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "README.md",
+                "path": "README.md",
+                "size": 21,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "dist",
+                "path": "dist",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "index.html",
+                "path": "index.html",
+                "size": 699,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package-lock.json",
+                "path": "package-lock.json",
+                "size": 68205,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package.json",
+                "path": "package.json",
+                "size": 756,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "public",
+                "path": "public",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "src",
+                "path": "src",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.json",
+                "path": "tsconfig.json",
+                "size": 604,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.node.json",
+                "path": "tsconfig.node.json",
+                "size": 212,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "vite.config.ts",
+                "path": "vite.config.ts",
+                "size": 162,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+              "type": "api-response"
+            }
+          ],
+          "parent_slug": "githubread",
+          "tool_call_id": "call_8XwmgjNQkCMrj4D2krGiICwb",
+          "parent_tool_call_id": "toolu_vrtx_01NxXxWr1Zx2q94zBFWQX1nP"
+        }
+      ],
+      "skillExecutions": []
+    },
+    {
+      "id": "b8194829-137a-4986-b5ac-797209b1ab55",
+      "parentMessageID": "7c94654d-8f5c-4b1c-a0b9-1e7cd4b28a1a",
+      "intent": "conversation",
+      "role": "assistant",
+      "model": "",
+      "content": "Let me use the correct tool for writing to the repository:",
+      "createdAt": "2026-03-29T17:14:38.555478219Z",
+      "threadID": "becbb253-f07c-4b2e-9fae-0d2ac56dff60",
+      "references": [
+        {
+          "type": "text",
+          "text": "MCP skill execution failed: failed to call tool \"create_or_update_file\": tool call failed \"create_or_update_file\": \"failed to create/update file: PUT https://api.github.com/repos/kriti232/your-repo-name/contents/src/types/onboarding.types.ts: 404 Not Found []\""
+        }
+      ],
+      "skillExecutions": []
+    },
+    {
+      "id": "4e1b27df-1df0-4be1-ae77-b529db227bce",
+      "parentMessageID": "b8194829-137a-4986-b5ac-797209b1ab55",
+      "role": "user",
+      "content": "@Copilot Accepted Confirmation: Are you sure?",
+      "createdAt": "2026-03-29T17:14:37.123Z",
+      "threadID": "becbb253-f07c-4b2e-9fae-0d2ac56dff60",
+      "references": [
+        {
+          "type": "subskill-metadata",
+          "slug": "get-github-data",
+          "arguments": "{\"endpoint\":\"/repos/kriti232/smart-study-planner/contents\",\"repo\":\"kriti232/smart-study-planner\",\"task\":\"list directory contents and existing files\",\"userQuery\":\"Provide the structure and existing files in the kriti232/smart-study-planner repository.\"}",
+          "sub_references": [
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": ".gitignore",
+                "path": ".gitignore",
+                "size": 26,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "README.md",
+                "path": "README.md",
+                "size": 21,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "dist",
+                "path": "dist",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "index.html",
+                "path": "index.html",
+                "size": 699,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package-lock.json",
+                "path": "package-lock.json",
+                "size": 68205,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package.json",
+                "path": "package.json",
+                "size": 756,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "public",
+                "path": "public",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "src",
+                "path": "src",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.json",
+                "path": "tsconfig.json",
+                "size": 604,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.node.json",
+                "path": "tsconfig.node.json",
+                "size": 212,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "vite.config.ts",
+                "path": "vite.config.ts",
+                "size": 162,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+              "type": "api-response"
+            }
+          ],
+          "parent_slug": "githubread",
+          "tool_call_id": "call_8XwmgjNQkCMrj4D2krGiICwb",
+          "parent_tool_call_id": "toolu_vrtx_01NxXxWr1Zx2q94zBFWQX1nP"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": ".gitignore",
+            "path": ".gitignore",
+            "size": 26,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "README.md",
+            "path": "README.md",
+            "size": 21,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "dist",
+            "path": "dist",
+            "size": 0,
+            "type": "dir"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "index.html",
+            "path": "index.html",
+            "size": 699,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "package-lock.json",
+            "path": "package-lock.json",
+            "size": 68205,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "package.json",
+            "path": "package.json",
+            "size": 756,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "public",
+            "path": "public",
+            "size": 0,
+            "type": "dir"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "src",
+            "path": "src",
+            "size": 0,
+            "type": "dir"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "tsconfig.json",
+            "path": "tsconfig.json",
+            "size": 604,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "tsconfig.node.json",
+            "path": "tsconfig.node.json",
+            "size": 212,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+          "type": "api-response"
+        },
+        {
+          "id": 0,
+          "authID": 0,
+          "resourceType": "RepositoryContent",
+          "authResourceType": "Repository",
+          "action": "get_contents",
+          "repo": "kriti232/smart-study-planner",
+          "data": {
+            "name": "vite.config.ts",
+            "path": "vite.config.ts",
+            "size": 162,
+            "type": "file"
+          },
+          "displayName": "Repository Content: kriti232/smart-study-planner",
+          "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+          "type": "api-response"
+        },
+        {
+          "type": "subskill-metadata",
+          "slug": "get-github-data",
+          "arguments": "{\"endpoint\":\"/repos/kriti232/smart-study-planner/contents\",\"repo\":\"kriti232/smart-study-planner\",\"task\":\"list directory contents and existing files\",\"userQuery\":\"Provide the structure and existing files in the kriti232/smart-study-planner repository.\"}",
+          "sub_references": [
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": ".gitignore",
+                "path": ".gitignore",
+                "size": 26,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/.gitignore",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "README.md",
+                "path": "README.md",
+                "size": 21,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/README.md",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "dist",
+                "path": "dist",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/dist",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "index.html",
+                "path": "index.html",
+                "size": 699,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/index.html",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package-lock.json",
+                "path": "package-lock.json",
+                "size": 68205,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package-lock.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "package.json",
+                "path": "package.json",
+                "size": 756,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/package.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "public",
+                "path": "public",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/public",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "src",
+                "path": "src",
+                "size": 0,
+                "type": "dir"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/tree/main/src",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.json",
+                "path": "tsconfig.json",
+                "size": 604,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "tsconfig.node.json",
+                "path": "tsconfig.node.json",
+                "size": 212,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/tsconfig.node.json",
+              "type": "api-response"
+            },
+            {
+              "id": 0,
+              "authID": 0,
+              "resourceType": "RepositoryContent",
+              "authResourceType": "Repository",
+              "action": "get_contents",
+              "repo": "kriti232/smart-study-planner",
+              "data": {
+                "name": "vite.config.ts",
+                "path": "vite.config.ts",
+                "size": 162,
+                "type": "file"
+              },
+              "displayName": "Repository Content: kriti232/smart-study-planner",
+              "html_url": "https://github.com/kriti232/smart-study-planner/blob/main/vite.config.ts",
+              "type": "api-response"
+            }
+          ],
+          "parent_slug": "githubread",
+          "tool_call_id": "call_8XwmgjNQkCMrj4D2krGiICwb",
+          "parent_tool_call_id": "toolu_vrtx_01NxXxWr1Zx2q94zBFWQX1nP"
+        }
+      ],
+      "skillExecutions": []
+    },
+    {
+      "id": "fa48e211-4fc1-4591-9339-04a5f160e584",
+      "parentMessageID": "4e1b27df-1df0-4be1-ae77-b529db227bce",
+      "intent": "conversation",
+      "role": "assistant",
+      "model": "",
+      "content": "Let me use the correct githubwrite tool:",
+      "createdAt": "2026-03-29T17:14:49.762282849Z",
+      "threadID": "becbb253-f07c-4b2e-9fae-0d2ac56dff60",
+      "references": [
+        {
+          "type": "text",
+          "text": "MCP skill execution failed: failed to call tool \"create_or_update_file\": tool call failed \"create_or_update_file\": \"failed to create/update file: PUT https://api.github.com/repos/kriti232/%3Crepo_name_here%3E/contents/src/context/OnboardingContext.tsx: 404 Not Found []\""
+        }
+      ],
+      "skillExecutions": []
+    }
+  ],
+  "files": {
+    "src/index.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/index.jsx#7.10",
+        "language": "jsx",
+        "name": "src/index.jsx",
+        "value": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\nimport { UserProvider } from \"./context/UserContext\";\nimport \"./index.css\";\n\ncreateRoot(document.getElementById(\"root\")).render(\n  <React.StrictMode>\n    <UserProvider>\n      <App />\n    </UserProvider>\n  </React.StrictMode>\n);",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/index.css": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/index.css#7.26",
+        "language": "css",
+        "name": "src/index.css",
+        "value": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n/* Small helper overrides (optional) */\nbody {\n  @apply bg-gray-50 text-slate-800;\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/App.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/App.jsx#7.37",
+        "language": "jsx",
+        "name": "src/App.jsx",
+        "value": "import React, { useContext } from \"react\";\nimport Onboarding from \"./components/Onboarding/Onboarding\";\nimport Dashboard from \"./components/Dashboard/Dashboard\";\nimport { UserContext } from \"./context/UserContext\";\n\nexport default function App() {\n  const { profile } = useContext(UserContext);\n\n  // If the user has completed onboarding (e.g., profile.completed === true), go to Dashboard\n  return <div className=\"min-h-screen p-4 md:p-8\">\n    {profile?.completed ? <Dashboard /> : <Onboarding />}\n  </div>;\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/context/UserContext.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/context/UserContext.jsx#7.53",
+        "language": "jsx",
+        "name": "src/context/UserContext.jsx",
+        "value": "import React, { createContext, useState, useEffect } from \"react\";\n\nexport const UserContext = createContext(null);\n\nexport function UserProvider({ children }) {\n  const [profile, setProfile] = useState(() => {\n    try {\n      const raw = localStorage.getItem(\"ssp_profile\");\n      return raw ? JSON.parse(raw) : { completed: false };\n    } catch {\n      return { completed: false };\n    }\n  });\n\n  useEffect(() => {\n    localStorage.setItem(\"ssp_profile\", JSON.stringify(profile));\n  }, [profile]);\n\n  const updateProfile = (patch) => {\n    setProfile((prev) => ({ ...prev, ...patch }));\n  };\n\n  const resetProfile = () => {\n    setProfile({ completed: false });\n  };\n\n  return (\n    <UserContext.Provider value={{ profile, updateProfile, resetProfile }}>\n      {children}\n    </UserContext.Provider>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/common/Card.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/common/Card.jsx#7.88",
+        "language": "jsx",
+        "name": "src/components/common/Card.jsx",
+        "value": "import React from \"react\";\n\nexport default function Card({ children, className = \"\" }) {\n  return (\n    <div className={`bg-white shadow-md rounded-lg p-6 ${className}`}>\n      {children}\n    </div>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/common/Input.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/common/Input.jsx#7.100",
+        "language": "jsx",
+        "name": "src/components/common/Input.jsx",
+        "value": "import React from \"react\";\n\nexport default function Input({ label, ...props }) {\n  return (\n    <label className=\"block\">\n      {label && <span className=\"text-sm font-medium text-slate-600\">{label}</span>}\n      <input\n        className=\"mt-1 block w-full border border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400\"\n        {...props}\n      />\n    </label>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/common/Select.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/common/Select.jsx#7.116",
+        "language": "jsx",
+        "name": "src/components/common/Select.jsx",
+        "value": "import React from \"react\";\n\nexport default function Select({ label, children, ...props }) {\n  return (\n    <label className=\"block\">\n      {label && <span className=\"text-sm font-medium text-slate-600\">{label}</span>}\n      <select\n        className=\"mt-1 block w-full border border-gray-200 rounded-md px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-400\"\n        {...props}\n      >\n        {children}\n      </select>\n    </label>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/common/Button.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/common/Button.jsx#7.134",
+        "language": "jsx",
+        "name": "src/components/common/Button.jsx",
+        "value": "import React from \"react\";\n\nexport default function Button({ children, className = \"\", ...props }) {\n  return (\n    <button\n      className={`inline-flex items-center justify-center px-4 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 ${className}`}\n      {...props}\n    >\n      {children}\n    </button>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Stepper.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Stepper.jsx#7.149",
+        "language": "jsx",
+        "name": "src/components/Stepper.jsx",
+        "value": "import React from \"react\";\n\nexport default function Stepper({ steps = [], current = 0 }) {\n  return (\n    <div className=\"mb-6\">\n      <div className=\"flex items-center space-x-2\">\n        {steps.map((s, i) => {\n          const active = i === current;\n          const done = i < current;\n          return (\n            <div key={s} className=\"flex-1\">\n              <div className=\"flex items-center\">\n                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${done ? 'bg-indigo-600 text-white' : active ? 'bg-indigo-100 text-indigo-700' : 'bg-gray-200 text-gray-600'}`}>\n                  {i + 1}\n                </div>\n                <div className=\"ml-3 text-sm font-medium text-slate-700\">{s}</div>\n              </div>\n              {i < steps.length - 1 && (\n                <div className={`h-1 mt-3 ${done ? 'bg-indigo-600' : 'bg-gray-200'}`} />\n              )}\n            </div>\n          );\n        })}\n      </div>\n    </div>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/Onboarding.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/Onboarding.jsx#7.179",
+        "language": "jsx",
+        "name": "src/components/Onboarding/Onboarding.jsx",
+        "value": "import React, { useState, useContext } from \"react\";\nimport Stepper from \"../Stepper\";\nimport Card from \"../common/Card\";\nimport Button from \"../common/Button\";\n\nimport BasicInfo from \"./steps/BasicInfo\";\nimport LevelSelection from \"./steps/LevelSelection\";\nimport PurposeSelection from \"./steps/PurposeSelection\";\nimport ConditionalDetails from \"./steps/ConditionalDetails\";\nimport { UserContext } from \"../../context/UserContext\";\n\nconst STEPS = [\"Basic Info\", \"Level\", \"Goal\", \"Details\", \"Finish\"];\n\nexport default function Onboarding() {\n  const [step, setStep] = useState(0);\n  const { profile, updateProfile } = useContext(UserContext);\n\n  const next = () => setStep((s) => Math.min(s + 1, STEPS.length - 1));\n  const prev = () => setStep((s) => Math.max(s - 1, 0));\n\n  const onSubmitStep = (data) => {\n    updateProfile(data);\n    next();\n  };\n\n  const finishOnboarding = () => {\n    updateProfile({ completed: true, onboardedAt: new Date().toISOString() });\n  };\n\n  return (\n    <div className=\"max-w-3xl mx-auto\">\n      <Card>\n        <Stepper steps={STEPS} current={step} />\n        <div className=\"space-y-6\">\n          {step === 0 && <BasicInfo initial={profile} onNext={onSubmitStep} />}\n          {step === 1 && <LevelSelection initial={profile} onNext={onSubmitStep} onBack={prev} />}\n          {step === 2 && <PurposeSelection initial={profile} onNext={onSubmitStep} onBack={prev} />}\n          {step === 3 && (\n            <ConditionalDetails initial={profile} onNext={onSubmitStep} onBack={prev} />\n          )}\n          {step === 4 && (\n            <div>\n              <h3 className=\"text-lg font-semibold\">Review & Finish</h3>\n              <pre className=\"mt-4 bg-gray-50 p-4 rounded-md text-sm overflow-auto\">\n                {JSON.stringify(profile, null, 2)}\n              </pre>\n              <div className=\"mt-4 flex gap-3\">\n                <Button onClick={finishOnboarding}>Finish and Go to Dashboard</Button>\n                <button className=\"px-4 py-2 rounded-md border\" onClick={prev}>Back</button>\n              </div>\n            </div>\n          )}\n        </div>\n      </Card>\n    </div>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/steps/BasicInfo.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/steps/BasicInfo.jsx#7.239",
+        "language": "jsx",
+        "name": "src/components/Onboarding/steps/BasicInfo.jsx",
+        "value": "import React, { useState } from \"react\";\nimport Input from \"../../common/Input\";\nimport Button from \"../../common/Button\";\n\nexport default function BasicInfo({ initial = {}, onNext }) {\n  const [form, setForm] = useState({\n    name: initial.name || \"\",\n    email: initial.email || \"\",\n    password: \"\",\n  });\n\n  const handleChange = (k) => (e) => setForm({ ...form, [k]: e.target.value });\n\n  const submit = (e) => {\n    e.preventDefault();\n    // Basic validation\n    if (!form.name || !form.email || !form.password) return alert(\"Please fill all fields\");\n    onNext({ name: form.name, email: form.email, password: form.password });\n  };\n\n  return (\n    <form onSubmit={submit} className=\"space-y-4\">\n      <h3 className=\"text-lg font-semibold\">Basic Information</h3>\n      <Input label=\"Full Name\" value={form.name} onChange={handleChange(\"name\")} />\n      <Input label=\"Email\" type=\"email\" value={form.email} onChange={handleChange(\"email\")} />\n      <Input label=\"Password\" type=\"password\" value={form.password} onChange={handleChange(\"password\")} />\n      <div className=\"flex justify-end\">\n        <Button type=\"submit\">Next</Button>\n      </div>\n    </form>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/steps/LevelSelection.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/steps/LevelSelection.jsx#7.274",
+        "language": "jsx",
+        "name": "src/components/Onboarding/steps/LevelSelection.jsx",
+        "value": "import React, { useState } from \"react\";\nimport Card from \"../../common/Card\";\nimport Button from \"../../common/Button\";\n\nexport default function LevelSelection({ initial = {}, onNext, onBack }) {\n  const [level, setLevel] = useState(initial.level || \"\");\n\n  const submit = (e) => {\n    e?.preventDefault();\n    if (!level) return alert(\"Select your current level\");\n    onNext({ level });\n  };\n\n  return (\n    <form onSubmit={submit} className=\"space-y-4\">\n      <h3 className=\"text-lg font-semibold\">What is your current level?</h3>\n      <div className=\"grid grid-cols-1 md:grid-cols-3 gap-3\">\n        {[\"School Student\", \"College Student\", \"Working Professional\"].map((opt) => (\n          <button\n            key={opt}\n            type=\"button\"\n            onClick={() => setLevel(opt)}\n            className={`p-4 rounded-lg border ${level === opt ? \"border-indigo-600 bg-indigo-50\" : \"border-gray-200\"}`}\n          >\n            {opt}\n          </button>\n        ))}\n      </div>\n      <div className=\"flex justify-between\">\n        <button type=\"button\" className=\"px-4 py-2 rounded-md border\" onClick={onBack}>Back</button>\n        <Button type=\"submit\">Next</Button>\n      </div>\n    </form>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/steps/PurposeSelection.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/steps/PurposeSelection.jsx#7.312",
+        "language": "jsx",
+        "name": "src/components/Onboarding/steps/PurposeSelection.jsx",
+        "value": "import React, { useState } from \"react\";\nimport Button from \"../../common/Button\";\n\nexport default function PurposeSelection({ initial = {}, onNext, onBack }) {\n  const [purpose, setPurpose] = useState(initial.purpose || \"\");\n\n  const submit = (e) => {\n    e?.preventDefault();\n    if (!purpose) return alert(\"Select a primary goal\");\n    onNext({ purpose });\n  };\n\n  const options = [\"Prepare for Exams\", \"Learn Skills\", \"Prepare for Interviews\"];\n\n  return (\n    <form onSubmit={submit} className=\"space-y-4\">\n      <h3 className=\"text-lg font-semibold\">What is your primary goal?</h3>\n      <div className=\"grid grid-cols-1 md:grid-cols-3 gap-3\">\n        {options.map((opt) => (\n          <button\n            key={opt}\n            type=\"button\"\n            onClick={() => setPurpose(opt)}\n            className={`p-4 rounded-lg border ${purpose === opt ? \"border-indigo-600 bg-indigo-50\" : \"border-gray-200\"}`}\n          >\n            {opt}\n          </button>\n        ))}\n      </div>\n      <div className=\"flex justify-between\">\n        <button type=\"button\" className=\"px-4 py-2 rounded-md border\" onClick={onBack}>Back</button>\n        <Button type=\"submit\">Next</Button>\n      </div>\n    </form>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/steps/ConditionalDetails.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/steps/ConditionalDetails.jsx#7.351",
+        "language": "jsx",
+        "name": "src/components/Onboarding/steps/ConditionalDetails.jsx",
+        "value": "import React, { useState } from \"react\";\nimport Select from \"../../common/Select\";\nimport Input from \"../../common/Input\";\nimport Button from \"../../common/Button\";\n\nimport SchoolDetails from \"./substeps/SchoolDetails\";\nimport CollegeDetails from \"./substeps/CollegeDetails\";\nimport ProfessionalDetails from \"./substeps/ProfessionalDetails\";\nimport SkillDetails from \"./substeps/SkillDetails\";\nimport ExamDetails from \"./substeps/ExamDetails\";\nimport InterviewDetails from \"./substeps/InterviewDetails\";\n\nexport default function ConditionalDetails({ initial = {}, onNext, onBack }) {\n  // initial contains level and purpose\n  const level = initial.level;\n  const purpose = initial.purpose;\n\n  const [localData, setLocalData] = useState(initial || {});\n\n  const handlePatch = (patch) => {\n    setLocalData((s) => ({ ...s, ...patch }));\n  };\n\n  const submit = (e) => {\n    e?.preventDefault();\n    onNext(localData);\n  };\n\n  return (\n    <form onSubmit={submit} className=\"space-y-4\">\n      <h3 className=\"text-lg font-semibold\">Tell us more</h3>\n\n      {/* Level-specific */}\n      {level === \"School Student\" && (\n        <SchoolDetails initial={localData} onChange={handlePatch} />\n      )}\n      {level === \"College Student\" && (\n        <CollegeDetails initial={localData} onChange={handlePatch} />\n      )}\n      {level === \"Working Professional\" && (\n        <ProfessionalDetails initial={localData} onChange={handlePatch} />\n      )}\n\n      {/* Purpose-specific */}\n      {purpose === \"Learn Skills\" && (\n        <SkillDetails initial={localData} onChange={handlePatch} />\n      )}\n      {purpose === \"Prepare for Exams\" && (\n        <ExamDetails initial={localData} onChange={handlePatch} />\n      )}\n      {purpose === \"Prepare for Interviews\" && (\n        <InterviewDetails initial={localData} onChange={handlePatch} />\n      )}\n\n      <div className=\"flex justify-between mt-3\">\n        <button type=\"button\" className=\"px-4 py-2 rounded-md border\" onClick={onBack}>Back</button>\n        <Button type=\"submit\">Save & Next</Button>\n      </div>\n    </form>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/steps/substeps/SchoolDetails.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/steps/substeps/SchoolDetails.jsx#7.415",
+        "language": "jsx",
+        "name": "src/components/Onboarding/steps/substeps/SchoolDetails.jsx",
+        "value": "import React from \"react\";\nimport Select from \"../../common/Select\";\n\nconst SUBJECTS = {\n  Science: [\"Maths\", \"Physics\", \"Chemistry\", \"Biology\"],\n  Commerce: [\"Accounts\", \"Business Studies\", \"Economics\"],\n  Arts: [\"History\", \"Political Science\", \"Sociology\"],\n};\n\nexport default function SchoolDetails({ initial = {}, onChange }) {\n  const cls = initial.class || \"\";\n  const stream = initial.stream || \"\";\n\n  return (\n    <div className=\"space-y-4\">\n      <Select label=\"Class\" value={cls} onChange={(e) => onChange({ class: e.target.value })}>\n        <option value=\"\">Select class</option>\n        {Array.from({ length: 12 }, (_, i) => i + 1).map((c) => (\n          <option key={c} value={c}>{c}</option>\n        ))}\n      </Select>\n\n      {(+cls === 11 || +cls === 12) && (\n        <>\n          <Select label=\"Stream\" value={stream} onChange={(e) => onChange({ stream: e.target.value })}>\n            <option value=\"\">Select stream</option>\n            {[\"Science\", \"Commerce\", \"Arts\"].map((s) => <option key={s} value={s}>{s}</option>)}\n          </Select>\n\n          {stream && (\n            <div>\n              <label className=\"text-sm font-medium text-slate-600\">Subjects</label>\n              <div className=\"mt-2 flex gap-2 flex-wrap\">\n                {SUBJECTS[stream].map((sub) => (\n                  <span key={sub} className=\"px-3 py-1 border rounded-full bg-gray-50 text-sm\">{sub}</span>\n                ))}\n              </div>\n            </div>\n          )}\n        </>\n      )}\n    </div>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/steps/substeps/CollegeDetails.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/steps/substeps/CollegeDetails.jsx#7.462",
+        "language": "jsx",
+        "name": "src/components/Onboarding/steps/substeps/CollegeDetails.jsx",
+        "value": "import React from \"react\";\nimport Input from \"../../common/Input\";\nimport Select from \"../../common/Select\";\n\nexport default function CollegeDetails({ initial = {}, onChange }) {\n  return (\n    <div className=\"space-y-4\">\n      <Select label=\"Course\" value={initial.course || \"\"} onChange={(e) => onChange({ course: e.target.value })}>\n        <option value=\"\">Select course</option>\n        <option value=\"B.Tech\">B.Tech</option>\n        <option value=\"BSc\">BSc</option>\n        <option value=\"BCom\">BCom</option>\n        <option value=\"Other\">Other</option>\n      </Select>\n\n      <Input label=\"Branch\" value={initial.branch || \"\"} onChange={(e) => onChange({ branch: e.target.value })} />\n      <Select label=\"Year\" value={initial.year || \"\"} onChange={(e) => onChange({ year: e.target.value })}>\n        <option value=\"\">Select year</option>\n        <option value=\"1st\">1st</option>\n        <option value=\"2nd\">2nd</option>\n        <option value=\"3rd\">3rd</option>\n        <option value=\"4th\">4th</option>\n      </Select>\n    </div>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/steps/substeps/ProfessionalDetails.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/steps/substeps/ProfessionalDetails.jsx#7.491",
+        "language": "jsx",
+        "name": "src/components/Onboarding/steps/substeps/ProfessionalDetails.jsx",
+        "value": "import React from \"react\";\nimport Input from \"../../common/Input\";\nimport Select from \"../../common/Select\";\n\nexport default function ProfessionalDetails({ initial = {}, onChange }) {\n  return (\n    <div className=\"space-y-4\">\n      <Select label=\"Field\" value={initial.field || \"\"} onChange={(e) => onChange({ field: e.target.value })}>\n        <option value=\"\">Select field</option>\n        <option>IT</option>\n        <option>Finance</option>\n        <option>Marketing</option>\n        <option>Operations</option>\n      </Select>\n\n      <Select label=\"Experience Level\" value={initial.experience || \"\"} onChange={(e) => onChange({ experience: e.target.value })}>\n        <option value=\"\">Select experience</option>\n        <option value=\"Junior\">Junior (0-2 yrs)</option>\n        <option value=\"Mid\">Mid (2-5 yrs)</option>\n        <option value=\"Senior\">Senior (5+ yrs)</option>\n      </Select>\n    </div>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/steps/substeps/SkillDetails.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/steps/substeps/SkillDetails.jsx#7.518",
+        "language": "jsx",
+        "name": "src/components/Onboarding/steps/substeps/SkillDetails.jsx",
+        "value": "import React, { useState, useEffect } from \"react\";\nimport Select from \"../../common/Select\";\n\nconst SKILLS = [\"Programming\", \"Design\", \"Communication\", \"Data Analysis\"];\n\nexport default function SkillDetails({ initial = {}, onChange }) {\n  const [skill, setSkill] = useState(initial.skill || \"\");\n\n  useEffect(() => {\n    onChange({ skill });\n  }, [skill]);\n\n  return (\n    <div className=\"space-y-4\">\n      <Select label=\"Skill to Learn\" value={skill} onChange={(e) => setSkill(e.target.value)}>\n        <option value=\"\">Select skill</option>\n        {SKILLS.map((s) => <option key={s} value={s}>{s}</option>)}\n      </Select>\n\n      {skill && (\n        <div className=\"bg-gray-50 p-3 rounded-md\">\n          <p className=\"text-sm\"><strong>Preview:</strong> We'll generate learning resources, quizzes and articles for <span className=\"font-medium\">{skill}</span>.</p>\n        </div>\n      )}\n    </div>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ],
+    "src/components/Onboarding/steps/substeps/ExamDetails.jsx": [
+      {
+        "version": 1,
+        "messageId": "3c66034a-87bb-430c-bf9e-a6e96e13e5ff",
+        "id": "file:src/components/Onboarding/steps/substeps/ExamDetails.jsx#7.548",
+        "language": "jsx",
+        "name": "src/components/Onboarding/steps/substeps/ExamDetails.jsx",
+        "value": "import React from \"react\";\nimport Select from \"../../common/Select\";\n\nexport default function ExamDetails({ initial = {}, onChange }) {\n  return (\n    <div className=\"space-y-4\">\n      <Select label=\"Exam Type\" value={initial.examType || \"\"} onChange={(e) => onChange({ examType: e.target.value })}>\n        <option value=\"\">Select exam type</option>\n        <option>Government Exams</option>\n        <option>GATE</option>\n        <option>Board Exams</option>\n        <option>Semester Exams</option>\n      </Select>\n\n      {initial.examType && (\n        <div className=\"bg-gray-50 p-3 rounded-md\">\n          <p className=\"text-sm\">We'll produce a tailored study plan for <strong>{initial.examType}</strong>.</p>\n        </div>\n      )}\n    </div>\n  );\n}",
+        "type": "file",
+        "timestamp": "2026-03-29T17:14:54.677Z",
+        "isStreaming": false,
+        "isUserEdited": false
+      }
+    ]
+  }
+}
