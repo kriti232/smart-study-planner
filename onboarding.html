@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Onboarding - Smart Study Planner</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      margin: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .step {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    label {
+      font-weight: 500;
+      margin-top: 10px;
+      display: block;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    select:focus, input:focus {
+      border-color: #4f46e5;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    .progress {
+      height: 6px;
+      background: #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 40%;
+      background: #4f46e5;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+  <div class="step">Step 2 of 3</div>
+  <h2>Setup Your Profile</h2>
+
+  <!-- LEVEL -->
+  <label>Select Your Level</label>
+  <select id="level">
+    <option value="">Choose...</option>
+    <option value="school">School Student</option>
+    <option value="college">College Student</option>
+    <option value="job">Working Professional</option>
+  </select>
+
+  <!-- GOAL -->
+  <label>Select Your Goal</label>
+  <select id="goal">
+    <option value="">Choose...</option>
+    <option value="exam">Prepare for Exams</option>
+    <option value="skill">Learn Skills</option>
+    <option value="interview">Prepare for Interviews</option>
+  </select>
+
+  <!-- DYNAMIC FIELDS -->
+  <div id="dynamicFields"></div>
+
+  <button onclick="saveProfile()">Continue</button>
+</div>
+
+<script src="js/onboarding.js"></script>
+
+</body>
+</html>
